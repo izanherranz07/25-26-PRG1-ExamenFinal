@@ -115,32 +115,31 @@ public class ConversorUnidades {
             System.out.println("Opción no válida");
         }
     }
-        
-        } else if (t == 3) {
-            System.out.println("Conversion de temperatura:");
-            System.out.println("[1] Celsius a Fahrenheit");
-            System.out.println("[2] Fahrenheit a Celsius");
-            System.out.println("[3] Celsius a Kelvin");
-            System.out.println("[4] Kelvin a Celsius");
-            System.out.print("Opcion: ");
-            int o = sc.nextInt();
-            System.out.print("Valor: ");
-            double v = sc.nextDouble();
+        private static void convertirTemperatura() {
+        Scanner entrada = new Scanner(System.in);
+        int opcion;
+        double valor;
 
-            if (o == 1) {
-                System.out.println(v + " C = " + (v * 9 / 5 + 32) + " F");
-            } else if (o == 2) {
-                System.out.println(v + " F = " + ((v - 32) * 5 / 9) + " C");
-            } else if (o == 3) {
-                System.out.println(v + " C = " + (v + 273.15) + " K");
-            } else if (o == 4) {
-                System.out.println(v + " K = " + (v - 273.15) + " C");
-            } else {
-                System.out.println("Opcion no valida");
-                f = false;
-            }
+        System.out.println("Conversión de temperatura");
+        System.out.println("1 - Celsius a Fahrenheit");
+        System.out.println("2 - Fahrenheit a Celsius");
+        System.out.println("3 - Celsius a Kelvin");
+        System.out.println("4 - Kelvin a Celsius");
+
+        opcion = entrada.nextInt();
+        System.out.println("Introduzca el valor:");
+        valor = entrada.nextDouble();
+
+        if (opcion == 1) {
+            System.out.println(valor + " C = " + (valor * 9 / 5 + 32) + " F");
+        } else if (opcion == 2) {
+            System.out.println(valor + " F = " + ((valor - 32) * 5 / 9) + " C");
+        } else if (opcion == 3) {
+            System.out.println(valor + " C = " + (valor + 273.15) + " K");
+        } else if (opcion == 4) {
+            System.out.println(valor + " K = " + (valor - 273.15) + " C");
         } else {
-            System.out.println("Tipo no valido");
+            System.out.println("Opción no válida");
         }
     }
-}
+} 
