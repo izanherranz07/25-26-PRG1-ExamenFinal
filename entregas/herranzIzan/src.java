@@ -75,35 +75,47 @@ public class ConversorUnidades {
             System.out.println("Opción no válida");
         }
     }
-        else if (t == 2) {
-            System.out.println("Conversion de peso:");
-            System.out.println("[1] Kilogramos a Gramos");
-            System.out.println("[2] Gramos a Kilogramos");
-            System.out.println("[3] Kilogramos a Libras");
-            System.out.println("[4] Libras a Kilogramos");
-            System.out.println("[5] Gramos a Onzas");
-            System.out.println("[6] Onzas a Gramos");
-            System.out.print("Opcion: ");
-            int o = sc.nextInt();
-            System.out.print("Valor: ");
-            double v = sc.nextDouble();
+        
+         private static void convertirPeso() {
+        Scanner entrada = new Scanner(System.in);
 
-            if (o == 1) {
-                System.out.println(v + " kg = " + (v * 1000) + " g");
-            } else if (o == 2) {
-                System.out.println(v + " g = " + (v / 1000) + " kg");
-            } else if (o == 3) {
-                System.out.println(v + " kg = " + (v * 2.20462) + " lb");
-            } else if (o == 4) {
-                System.out.println(v + " lb = " + (v * 0.453592) + " kg");
-            } else if (o == 5) {
-                System.out.println(v + " g = " + (v * 0.035274) + " oz");
-            } else if (o == 6) {
-                System.out.println(v + " oz = " + (v * 28.3495) + " g");
-            } else {
-                System.out.println("Opcion no valida");
-                f = false;
-            }
+        String[] opciones = {
+            "Kilogramos a Gramos",
+            "Gramos a Kilogramos",
+            "Kilogramos a Libras",
+            "Libras a Kilogramos",
+            "Gramos a Onzas",
+            "Onzas a Gramos"
+        };
+
+        double[] factores = {
+            1000,
+            1.0 / 1000,
+            2.20462,
+            0.453592,
+            0.035274,
+            28.3495
+        };
+
+        int opcion;
+        double valor;
+
+        System.out.println("Conversión de peso");
+        for (int i = 0; i < opciones.length; i = i + 1) {
+            System.out.println((i + 1) + " - " + opciones[i]);
+        }
+
+        opcion = entrada.nextInt();
+        System.out.println("Introduzca el valor:");
+        valor = entrada.nextDouble();
+
+        if (opcion >= 1 && opcion <= opciones.length) {
+            System.out.println("Resultado: " + (valor * factores[opcion - 1]));
+        } else {
+            System.out.println("Opción no válida");
+        }
+    }
+        
         } else if (t == 3) {
             System.out.println("Conversion de temperatura:");
             System.out.println("[1] Celsius a Fahrenheit");
