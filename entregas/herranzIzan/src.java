@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class ConversorUnidades {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int c = 0;
-        boolean f = true;
+        int opcionElegida;
+        boolean salirPrograma = false;
 
         System.out.println("Conversor de Unidades - Version 2.1");
         System.out.println("[1] Longitud");
