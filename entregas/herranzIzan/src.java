@@ -6,13 +6,35 @@ public class ConversorUnidades {
         int opcionElegida;
         boolean salirPrograma = false;
 
-        System.out.println("Conversor de Unidades - Version 2.1");
-        System.out.println("[1] Longitud");
-        System.out.println("[2] Peso");
-        System.out.println("[3] Temperatura");
-        System.out.print("Tipo de conversion: ");
-        int t = sc.nextInt();
-        c++;
+        while (salirPrograma == false) {
+
+            opcionElegida = mostrarMenuPrincipal();
+
+            if (opcionElegida == 1) {
+                convertirLongitud();
+            } else if (opcionElegida == 2) {
+                convertirPeso();
+            } else if (opcionElegida == 3) {
+                convertirTemperatura();
+            } else if (opcionElegida == 4) {
+                System.out.println("Gracias por usar el conversor de unidades");
+                salirPrograma = true;
+            } else {
+                System.out.println("Opción no válida");
+            }
+        }
+
+        static int mostrarMenuPrincipal() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("-----------------------------------");
+        System.out.println("1 - Conversión de longitud");
+        System.out.println("2 - Conversión de peso");
+        System.out.println("3 - Conversión de temperatura");
+        System.out.println("4 - Salir");
+        System.out.println("-----------------------------------");
+        System.out.println("Seleccione una opción:");
+        return entrada.nextInt();
+    }
 
         if (t == 1) {
             System.out.println("Conversion de longitud:");
