@@ -35,37 +35,47 @@ public class ConversorUnidades {
         System.out.println("Seleccione una opción:");
         return entrada.nextInt();
     }
+ 
+        private static void convertirLongitud() {
+        Scanner entrada = new Scanner(System.in);
 
-        if (t == 1) {
-            System.out.println("Conversion de longitud:");
-            System.out.println("[1] Metros a Kilometros");
-            System.out.println("[2] Kilometros a Metros");
-            System.out.println("[3] Metros a Millas");
-            System.out.println("[4] Millas a Metros");
-            System.out.println("[5] Centimetros a Pulgadas");
-            System.out.println("[6] Pulgadas a Centimetros");
-            System.out.print("Opcion: ");
-            int o = sc.nextInt();
-            System.out.print("Valor: ");
-            double v = sc.nextDouble();
+        String[] opciones = {
+            "Metros a Kilómetros",
+            "Kilómetros a Metros",
+            "Metros a Millas",
+            "Millas a Metros",
+            "Centímetros a Pulgadas",
+            "Pulgadas a Centímetros"
+        };
 
-            if (o == 1) {
-                System.out.println(v + " m = " + (v / 1000) + " km");
-            } else if (o == 2) {
-                System.out.println(v + " km = " + (v * 1000) + " m");
-            } else if (o == 3) {
-                System.out.println(v + " m = " + (v * 0.000621371) + " mi");
-            } else if (o == 4) {
-                System.out.println(v + " mi = " + (v * 1609.34) + " m");
-            } else if (o == 5) {
-                System.out.println(v + " cm = " + (v * 0.393701) + " in");
-            } else if (o == 6) {
-                System.out.println(v + " in = " + (v * 2.54) + " cm");
-            } else {
-                System.out.println("Opcion no valida");
-                f = false;
-            }
-        } else if (t == 2) {
+        double[] factores = {
+            1.0 / 1000,
+            1000,
+            0.000621371,
+            1609.34,
+            0.393701,
+            2.54
+        };
+
+        int opcion;
+        double valor;
+
+        System.out.println("Conversión de longitud");
+        for (int i = 0; i < opciones.length; i = i + 1) {
+            System.out.println((i + 1) + " - " + opciones[i]);
+        }
+
+        opcion = entrada.nextInt();
+        System.out.println("Introduzca el valor:");
+        valor = entrada.nextDouble();
+
+        if (opcion >= 1 && opcion <= opciones.length) {
+            System.out.println("Resultado: " + (valor * factores[opcion - 1]));
+        } else {
+            System.out.println("Opción no válida");
+        }
+    }
+        else if (t == 2) {
             System.out.println("Conversion de peso:");
             System.out.println("[1] Kilogramos a Gramos");
             System.out.println("[2] Gramos a Kilogramos");
